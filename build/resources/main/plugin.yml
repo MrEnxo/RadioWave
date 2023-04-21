@@ -1,0 +1,10 @@
+name: RadioWave
+version: ${project.version}
+main: me.mrenxo.RadioWave
+api-version: 1.19
+authors: [ MrEnx0 ]
+depend: [ Citizens ]
+description: Core for the RadioWave
+commands:
+  items:
+    description: Open an inventory of all Seafront Items
