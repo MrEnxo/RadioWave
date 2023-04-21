@@ -1,6 +1,8 @@
 package me.mrenxo;
 
 import me.mrenxo.display.ScoreboardManager;
+import me.mrenxo.item.commands.RadioItemCommand;
+import me.mrenxo.item.listener.AbilityRightClickListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class RadioWave extends JavaPlugin {
@@ -18,6 +20,7 @@ public class RadioWave extends JavaPlugin {
         scoreboardManager = new ScoreboardManager();
 
         registerEvents();
+        registerCommand();
     }
 
     @Override
@@ -25,7 +28,12 @@ public class RadioWave extends JavaPlugin {
 
     }
 
+    public void registerCommand() {
+        this.getCommand("items").setExecutor(new RadioItemCommand());
+    }
     public void registerEvents() {
+
         getServer().getPluginManager().registerEvents(scoreboardManager, this);
+        getServer().getPluginManager().registerEvents(new AbilityRightClickListener(), this);
     }
 }
