@@ -8,3 +8,5 @@ description: Core for the RadioWave
 commands:
   items:
     description: Open an inventory of all Seafront Items
+  nbt:
+    description: ok

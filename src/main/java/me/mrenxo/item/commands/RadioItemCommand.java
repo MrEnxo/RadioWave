@@ -32,6 +32,7 @@ public class RadioItemCommand implements CommandExecutor {
 
 
         for(Map.Entry<String, RadioItem> item : RadioItemManager.itemList.entrySet()) {
+            Bukkit.getLogger().info(item.toString());
             inventory.setItem(index, item.getValue().getItem());
             index++;
         }

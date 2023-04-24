@@ -5,17 +5,16 @@ import me.mrenxo.item.Ability;
 import me.mrenxo.item.AbilityType;
 import me.mrenxo.item.RadioItem;
 import me.mrenxo.item.RadioItemManager;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class AbilityRightClickListener implements Listener {
+public class AbilityLeftClickListener implements Listener {
 
     @EventHandler
-    public void onRightClick(PlayerInteractEvent event) {
-        if (!event.getAction().isRightClick()) return;
+    public void onLeftClick(PlayerInteractEvent event) {
+        if (!event.getAction().isLeftClick()) return;
 
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
 
@@ -30,16 +29,17 @@ public class AbilityRightClickListener implements Listener {
         event.getPlayer().getInventory().setItemInMainHand(radioItem.reloadItem(item));
 
 
+
         if (event.hasBlock()) {
             for (Ability ability : radioItem.abilities ) {
-                if (ability.type.equals(AbilityType.rightClickOnBlock)) {
+                if (ability.type.equals(AbilityType.leftClickOnBlock)) {
                     ability.activateAbility(event);
                     return;
                 }
             }
         }
         for (Ability ability : radioItem.abilities ) {
-            if (ability.type.equals(AbilityType.rightClick)) {
+            if (ability.type.equals(AbilityType.leftClick)) {
                 ability.activateAbility(event);
             }
         }

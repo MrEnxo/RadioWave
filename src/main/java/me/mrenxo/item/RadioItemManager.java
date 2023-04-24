@@ -1,5 +1,6 @@
 package me.mrenxo.item;
 
+import org.bukkit.Bukkit;
 import org.reflections.Reflections;
 
 import java.util.LinkedHashMap;
@@ -14,7 +15,7 @@ public class RadioItemManager {
         for(Class<? extends RadioItem> clazz : classList) {
             try {
                 RadioItem item = clazz.getConstructor().newInstance();
-                itemList.put(item.name, item);
+                itemList.put(item.id, item);
             } catch(Exception exception) {}
         }
 
